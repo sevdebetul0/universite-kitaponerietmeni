@@ -1,0 +1,1004 @@
+<!doctype html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KitapAjanı - Kitap Öneri Etmeni</title>
+
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: #121a33;
+      --muted: #9aa3b2;
+      --text: #eef2ff;
+      --border: rgba(255, 255, 255, 0.08);
+      --primary: #7c3aed;
+      --primary2: #a78bfa;
+      --chip: rgba(124, 58, 237, 0.18);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background:
+        radial-gradient(1200px 600px at 20% 0%, rgba(124, 58, 237, 0.28), transparent 55%),
+        radial-gradient(1000px 600px at 80% 20%, rgba(167, 139, 250, 0.18), transparent 55%),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 22px 16px 40px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      background: rgba(18, 26, 51, 0.55);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 12px;
+      backdrop-filter: blur(10px);
+      z-index: 50;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 16px;
+      letter-spacing: 0.3px;
+    }
+
+    .brand p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: transform 0.08s ease, background 0.2s ease, border 0.2s ease;
+      font-size: 13px;
+    }
+
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    .btn.primary {
+      border: 0;
+      background: linear-gradient(135deg, var(--primary), var(--primary2));
+      box-shadow: 0 10px 25px rgba(124, 58, 237, 0.25);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      background: rgba(18, 26, 51, 0.6);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px;
+    }
+
+    .section-title {
+      margin: 0 0 10px 0;
+      font-size: 14px;
+      color: rgba(238, 242, 255, 0.95);
+      letter-spacing: 0.2px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    label {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    input[type="text"],
+    textarea,
+    select {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      padding: 12px 12px;
+      border-radius: 14px;
+      outline: none;
+      font-size: 14px;
+    }
+
+    /* ✅ Select rengini/okunurluğunu garanti altına al */
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image:
+        linear-gradient(45deg, transparent 50%, rgba(238, 242, 255, 0.9) 50%),
+        linear-gradient(135deg, rgba(238, 242, 255, 0.9) 50%, transparent 50%);
+      background-position:
+        calc(100% - 18px) calc(50% - 2px),
+        calc(100% - 12px) calc(50% - 2px);
+      background-size: 6px 6px, 6px 6px;
+      background-repeat: no-repeat;
+      padding-right: 34px;
+    }
+
+    select option {
+      background: #121a33;
+      /* Windows dropdown beyaz çıkmasın */
+      color: #eef2ff;
+    }
+
+    textarea {
+      min-height: 88px;
+      resize: vertical;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .chip {
+      border: 1px solid rgba(167, 139, 250, 0.28);
+      background: var(--chip);
+      color: rgba(238, 242, 255, 0.92);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s ease, border 0.2s ease;
+    }
+
+    .chip.active {
+      border-color: rgba(167, 139, 250, 0.6);
+      background: rgba(124, 58, 237, 0.28);
+    }
+
+    .row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    .list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 650px) {
+      .list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .book {
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 16px;
+      padding: 12px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .cover {
+      width: 56px;
+      height: 78px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(167, 139, 250, 0.35), rgba(124, 58, 237, 0.18));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(238, 242, 255, 0.85);
+      font-size: 11px;
+      text-align: center;
+      padding: 6px;
+      overflow: hidden;
+      /* img taşmasın */
+    }
+
+    .meta {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .meta h3 {
+      margin: 0 0 4px 0;
+      font-size: 14px;
+    }
+
+    .meta p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 6px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: rgba(238, 242, 255, 0.86);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    /* ✅ Tür etiketlerini daha belirgin yap */
+    .genre-tag {
+      font-size: 11px;
+      padding: 6px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(167, 139, 250, 0.35);
+      color: rgba(238, 242, 255, 0.95);
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.35), rgba(167, 139, 250, 0.18));
+    }
+
+    .book-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 0 0 auto;
+    }
+
+    .icon-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .detail-top {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .detail-cover {
+      width: 88px;
+      height: 124px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(167, 139, 250, 0.38), rgba(124, 58, 237, 0.22));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 12px;
+      color: rgba(238, 242, 255, 0.9);
+      padding: 8px;
+      flex: 0 0 auto;
+      overflow: hidden;
+      /* img taşmasın */
+    }
+
+    .detail-meta h2 {
+      margin: 0 0 6px 0;
+      font-size: 18px;
+    }
+
+    .detail-meta .sub {
+      margin: 0 0 10px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .footer-note {
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+      margin: 10px 0;
+    }
+
+    .md-box {
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 14px;
+      padding: 12px;
+      line-height: 1.55;
+      overflow-wrap: anywhere;
+    }
+
+    .md-box h1,
+    .md-box h2,
+    .md-box h3 {
+      margin: 10px 0 6px;
+    }
+
+    .md-box ul {
+      margin: 8px 0 8px 18px;
+    }
+
+    .md-box p {
+      margin: 8px 0;
+    }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <h1>KitapAjanı - Kitap Öneri Etmeni</h1>
+      </div>
+      <div class="nav">
+        <button class="btn" onclick="go('home')">Ana Sayfa</button>
+        <button class="btn" onclick="go('list')">Öneriler</button>
+        <button class="btn" onclick="go('favorites')">Favoriler</button>
+      </div>
+    </header>
+
+    <!-- HOME -->
+    <section id="home" class="grid">
+      <div class="card">
+        <h2 class="section-title">Filtrele ve Öner</h2>
+
+        <div class="field">
+          <textarea id="note" placeholder="Örn: umutlu ve maceralı bir şey istiyorum..."></textarea>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="field">
+          <label>Tür</label>
+          <select id="genreSelect">
+            <option value="">Yükleniyor...</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Ruh hali</label>
+          <input id="moodInput" type="text" placeholder="Örn: mutlu / üzgün / stresli / heyecanlı" />
+          <div id="moodChips" class="chips"></div>
+        </div>
+
+        <div class="field">
+          <label>En son okuduğun kitap</label>
+          <input id="lastBookInput" type="text" placeholder="Örn: Aşk ve Gurur" />
+        </div>
+
+        <div class="row">
+          <button class="btn primary" onclick="runAgents()">AI ile Öner</button>
+          <button class="btn" onclick="applyFilters()">Sadece Filtrele</button>
+          <span class="muted" id="status">Kitaplar yükleniyor…</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="section-title">Etmen Çıktıları</h2>
+
+        <div class="field">
+          <label>Seçili mood etiketleri</label>
+          <div class="muted" id="selectedMoodsText">-</div>
+        </div>
+
+        <div class="field">
+          <label>Kullanıcı Profili (Profil Etmeni)</label>
+          <div class="md-box muted" id="profileOut">-</div>
+        </div>
+
+        <div class="field">
+          <label>AI Açıklaması (Açıklama Etmeni)</label>
+          <div class="md-box muted" id="explanationOut">-</div>
+        </div>
+
+        <div class="field">
+          <div class="muted" id="debugInfo">-</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIST -->
+    <section id="list" class="card hidden" style="margin-top:16px;">
+      <div class="row" style="margin-top:0; margin-bottom:10px;">
+        <h2 class="section-title" style="margin:0;">Öneriler Listesi</h2>
+        <button class="btn" onclick="go('home')">← Geri</button>
+      </div>
+
+      <div id="books" class="list"></div>
+      <p class="footer-note muted" id="listNote"></p>
+    </section>
+
+    <!-- DETAIL -->
+    <section id="detail" class="card hidden" style="margin-top:16px;">
+      <div class="row" style="margin-top:0; margin-bottom:10px;">
+        <h2 class="section-title" style="margin:0;">Kitap Detayı</h2>
+        <button class="btn" onclick="go('list')">← Listeye dön</button>
+      </div>
+
+      <div class="detail-top">
+        <div class="detail-cover" id="detailCover">KAPAK</div>
+        <div class="detail-meta">
+          <h2 id="detailTitle">-</h2>
+          <p class="sub" id="detailAuthor">-</p>
+          <div class="tags" id="detailGenres"></div>
+          <div class="tags" id="detailTags"></div>
+
+          <div class="row" style="justify-content:flex-start;">
+            <button class="btn primary" onclick="toggleFavorite(currentDetailId)">Favorile / Kaldır</button>
+            <span class="muted" id="favState"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <h3 class="section-title" style="margin-top:0;">Açıklama (book.json)</h3>
+      <p class="muted" id="detailDesc">-</p>
+    </section>
+
+    <!-- FAVORITES -->
+    <section id="favorites" class="card hidden" style="margin-top:16px;">
+      <div class="row" style="margin-top:0; margin-bottom:10px;">
+        <h2 class="section-title" style="margin:0;">Favoriler</h2>
+        <button class="btn" onclick="go('home')">← Ana sayfa</button>
+      </div>
+      <div id="favBooks" class="list"></div>
+      <p class="footer-note">Favoriler tarayıcıda tutuluyor (localStorage).</p>
+    </section>
+  </div>
+
+  <script>
+    // -----------------------------
+    // State
+    // -----------------------------
+    let ALL_BOOKS = [];
+    let LAST_RESULTS = [];
+    const selectedMoods = new Set();
+    let currentDetailId = null;
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      try {
+        const res = await fetch("/api/books");
+        if (!res.ok) throw new Error("Kitaplar alınamadı. /api/books kontrol et.");
+
+        ALL_BOOKS = await res.json();
+
+        buildGenreFilter();
+        buildMoodChips();
+
+        document.getElementById("status").textContent = `Yüklendi: ${ALL_BOOKS.length} kitap`;
+        document.getElementById("debugInfo").textContent = "Kaynak: /api/books (book.json)";
+        updateSelectedMoodsText();
+      } catch (e) {
+        console.error(e);
+        document.getElementById("status").textContent = "Hata: kitaplar yüklenemedi";
+        document.getElementById("debugInfo").textContent = String(e?.message || e);
+      }
+    });
+
+    // ✅ Kapak yardımcı fonksiyonu (Öneriler + Favoriler + Detay)
+    function createCover(container, book, radiusPx = 12) {
+      container.innerHTML = "";
+
+      if (book && book.cover) {
+        const img = document.createElement("img");
+        img.src = book.cover;
+        img.alt = (book.title || "Kapak");
+        img.style.width = "100%";
+        img.style.height = "100%";
+        img.style.objectFit = "cover";
+        img.style.borderRadius = `${radiusPx}px`;
+
+        // resim bulunamazsa placeholder'a dön
+        img.onerror = () => {
+          container.innerHTML = "";
+          container.textContent = "KAPAK";
+        };
+
+        container.appendChild(img);
+      } else {
+        container.textContent = "KAPAK";
+      }
+    }
+
+    // ✅ genre + genres[] desteği
+    function getGenresOfBook(b) {
+      if (Array.isArray(b.genres) && b.genres.length) return b.genres.map(x => String(x).trim()).filter(Boolean);
+      if (b.genre) return [String(b.genre).trim()];
+      return [];
+    }
+
+    function buildGenreFilter() {
+      const select = document.getElementById("genreSelect");
+
+      const genres = [...new Set(
+        ALL_BOOKS.flatMap(b => getGenresOfBook(b))
+      )].sort((a, b) => a.localeCompare(b, "tr"));
+
+      select.innerHTML =
+        `<option value="">Tümü</option>` +
+        genres.map(g => `<option value="${escapeHtml(g)}">${escapeHtml(g)}</option>`).join("");
+    }
+
+    function buildMoodChips() {
+      const el = document.getElementById("moodChips");
+      el.innerHTML = "";
+
+      const moods = [...new Set(
+        ALL_BOOKS.flatMap(b => Array.isArray(b.mood_tags) ? b.mood_tags : [])
+      )].sort((a, b) => String(a).localeCompare(String(b), "tr"));
+
+      moods.forEach(m => {
+        const chip = document.createElement("div");
+        chip.className = "chip";
+        chip.textContent = m;
+        chip.onclick = () => toggleMood(m, chip);
+        el.appendChild(chip);
+      });
+    }
+
+    function toggleMood(mood, chipEl) {
+      if (selectedMoods.has(mood)) {
+        selectedMoods.delete(mood);
+        chipEl.classList.remove("active");
+      } else {
+        selectedMoods.add(mood);
+        chipEl.classList.add("active");
+      }
+      updateSelectedMoodsText();
+
+      const moodInput = document.getElementById("moodInput");
+      if (moodInput) moodInput.value = selectedMoods.size ? [...selectedMoods].join(", ") : "";
+    }
+
+    function updateSelectedMoodsText() {
+      const el = document.getElementById("selectedMoodsText");
+      el.textContent = selectedMoods.size ? [...selectedMoods].join(", ") : "-";
+    }
+
+    // -----------------------------
+    // AI ile Öner (Etmenler)
+    // -----------------------------
+    async function runAgents() {
+      const genre = document.getElementById("genreSelect").value;
+
+      const moodTyped = (document.getElementById("moodInput").value || "").trim();
+      const moodFromChips = selectedMoods.size ? [...selectedMoods].join(", ") : "";
+      const mood = moodTyped || moodFromChips;
+
+      const last_book = (document.getElementById("lastBookInput").value || "").trim();
+
+      if (!genre) { document.getElementById("status").textContent = "Lütfen tür seç."; return; }
+      if (!mood) { document.getElementById("status").textContent = "Lütfen bir ruh hali seç/yaz."; return; }
+      if (!last_book) { document.getElementById("status").textContent = "Lütfen en son okuduğun kitabı yaz."; return; }
+
+      document.getElementById("status").textContent = "Etmenler çalışıyor…";
+      document.getElementById("debugInfo").textContent = "Kaynak: /api/recommend (agents)";
+      document.getElementById("profileOut").textContent = "-";
+      document.getElementById("explanationOut").textContent = "-";
+
+      try {
+        const res = await fetch("/api/recommend", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ mood, genre, last_book })
+        });
+
+        const data = await res.json();
+        if (!res.ok) throw new Error(data?.error || "Öneri alınamadı");
+
+        const p = data.profile || {};
+        const profileText =
+          p.summary
+            ? `• ${p.summary}\n\nRuh hali: ${p.mood || "-"}\nTür: ${p.favorite_genre || "-"}\nSon kitap: ${p.last_book || "-"}\nOkuma amacı: ${p.reading_goal || "-"}`
+            : JSON.stringify(p, null, 2);
+
+        document.getElementById("profileOut").innerHTML = marked.parse(profileText);
+
+        const md = data.explanation || "-";
+        document.getElementById("explanationOut").innerHTML = md ? marked.parse(md) : "-";
+
+        LAST_RESULTS = data.recommendations || [];
+        renderList();
+        go("list");
+
+        document.getElementById("status").textContent = `AI önerdi: ${LAST_RESULTS.length} kitap`;
+        document.getElementById("listNote").textContent =
+          `AI Modu: Tür=${genre} | Mood=${mood} | Son kitap=${last_book}`;
+      } catch (e) {
+        console.error(e);
+        document.getElementById("status").textContent = "Hata: AI öneri üretilemedi";
+        document.getElementById("explanationOut").textContent = String(e?.message || e);
+      }
+    }
+
+    // -----------------------------
+    // Apply filters (Sadece book.json)
+    // -----------------------------
+    function applyFilters() {
+      const genre = document.getElementById("genreSelect").value;
+      const count = 8;
+      const note = (document.getElementById("note").value || "").trim().toLowerCase();
+
+      let results = [...ALL_BOOKS];
+
+      if (genre) {
+        results = results.filter(b => getGenresOfBook(b).includes(genre));
+      }
+
+      if (selectedMoods.size > 0) {
+        results = results.filter(b => {
+          const tags = Array.isArray(b.mood_tags) ? b.mood_tags : [];
+          return tags.some(t => selectedMoods.has(t));
+        });
+      }
+
+      if (note) {
+        const boostWords = ["umut", "heyecan", "macera", "karanlik", "mutlu", "gerilim", "epik", "sicak", "psikolojik", "politik"];
+        results.sort((a, b) => scoreBook(b, note, boostWords) - scoreBook(a, note, boostWords));
+      }
+
+      LAST_RESULTS = results.slice(0, count);
+
+      document.getElementById("status").textContent = `Bulundu: ${LAST_RESULTS.length} kitap (filtre)`;
+      renderList();
+      go("list");
+
+      document.getElementById("listNote").textContent =
+        `Filtre Modu: ${genre ? "Tür=" + genre : "Tür=Tümü"} | Mood=${selectedMoods.size ? [...selectedMoods].join(", ") : "Yok"}`;
+    }
+
+    function scoreBook(book, note, boostWords) {
+      let s = 0;
+      const genres = getGenresOfBook(book).map(x => String(x).toLowerCase());
+      const tags = (Array.isArray(book.mood_tags) ? book.mood_tags : []).map(t => String(t).toLowerCase());
+      const desc = (book.description || "").toLowerCase();
+
+      boostWords.forEach(w => {
+        if (note.includes(w)) {
+          if (genres.some(g => g.includes(w))) s += 2;
+          if (tags.some(t => t.includes(w))) s += 3;
+          if (desc.includes(w)) s += 1;
+        }
+      });
+
+      return s;
+    }
+
+    // -----------------------------
+    // Navigation
+    // -----------------------------
+    function go(page) {
+      ["home", "list", "detail", "favorites"].forEach((id) => {
+        document.getElementById(id).classList.add("hidden");
+      });
+      document.getElementById(page).classList.remove("hidden");
+
+      if (page === "favorites") renderFavorites();
+    }
+
+    // -----------------------------
+    // Render list (Öneriler)
+    // -----------------------------
+    function renderList() {
+      const booksEl = document.getElementById("books");
+      booksEl.innerHTML = "";
+
+      if (!LAST_RESULTS.length) {
+        booksEl.innerHTML = `<p class="muted">Bu kriterlerle kitap bulunamadı.</p>`;
+        return;
+      }
+
+      LAST_RESULTS.forEach((b) => {
+        const item = document.createElement("div");
+        item.className = "book";
+
+        const cover = document.createElement("div");
+        cover.className = "cover";
+        createCover(cover, b, 12);
+
+        const meta = document.createElement("div");
+        meta.className = "meta";
+
+        const h = document.createElement("h3");
+        h.textContent = b.title;
+
+        const p = document.createElement("p");
+        p.textContent = (b.author ? b.author : "-");
+
+        const genreRow = document.createElement("div");
+        genreRow.className = "tags";
+        getGenresOfBook(b).slice(0, 6).forEach((g) => {
+          const tag = document.createElement("span");
+          tag.className = "genre-tag";
+          tag.textContent = g;
+          genreRow.appendChild(tag);
+        });
+
+        const tags = document.createElement("div");
+        tags.className = "tags";
+        (Array.isArray(b.mood_tags) ? b.mood_tags : []).slice(0, 4).forEach((t) => {
+          const tag = document.createElement("span");
+          tag.className = "tag";
+          tag.textContent = t;
+          tags.appendChild(tag);
+        });
+
+        meta.appendChild(h);
+        meta.appendChild(p);
+        meta.appendChild(genreRow);
+        meta.appendChild(tags);
+
+        const actions = document.createElement("div");
+        actions.className = "book-actions";
+
+        const detailBtn = document.createElement("button");
+        detailBtn.className = "icon-btn";
+        detailBtn.title = "Detay";
+        detailBtn.textContent = "ℹ️";
+        detailBtn.onclick = () => openDetail(b.id);
+
+        const favBtn = document.createElement("button");
+        favBtn.className = "icon-btn";
+        favBtn.title = "Favori";
+        favBtn.textContent = isFavorite(b.id) ? "⭐" : "☆";
+        favBtn.onclick = () => {
+          toggleFavorite(b.id);
+          favBtn.textContent = isFavorite(b.id) ? "⭐" : "☆";
+        };
+
+        actions.appendChild(detailBtn);
+        actions.appendChild(favBtn);
+
+        item.appendChild(cover);
+        item.appendChild(meta);
+        item.appendChild(actions);
+
+        booksEl.appendChild(item);
+      });
+    }
+
+    // -----------------------------
+    // Detail
+    // -----------------------------
+    function openDetail(id) {
+      currentDetailId = id;
+      const b = findBook(id);
+      if (!b) return;
+
+      document.getElementById("detailTitle").textContent = b.title;
+      document.getElementById("detailAuthor").textContent = `${b.author || "-"}`;
+      document.getElementById("detailDesc").textContent = b.description || "-";
+
+      // ✅ Detay kapağı
+      createCover(document.getElementById("detailCover"), b, 18);
+
+      const gEl = document.getElementById("detailGenres");
+      gEl.innerHTML = "";
+      getGenresOfBook(b).forEach((g) => {
+        const tag = document.createElement("span");
+        tag.className = "genre-tag";
+        tag.textContent = g;
+        gEl.appendChild(tag);
+      });
+
+      const tagsEl = document.getElementById("detailTags");
+      tagsEl.innerHTML = "";
+      (Array.isArray(b.mood_tags) ? b.mood_tags : []).forEach((t) => {
+        const tag = document.createElement("span");
+        tag.className = "tag";
+        tag.textContent = t;
+        tagsEl.appendChild(tag);
+      });
+
+      updateFavStateText();
+      go("detail");
+    }
+
+    function findBook(id) {
+      return ALL_BOOKS.find(b => b.id === id) || LAST_RESULTS.find(b => b.id === id);
+    }
+
+    // -----------------------------
+    // Favorites (localStorage)
+    // -----------------------------
+    function getFavSet() {
+      const raw = localStorage.getItem("favorites");
+      const arr = raw ? JSON.parse(raw) : [];
+      return new Set(arr);
+    }
+
+    function saveFavSet(set) {
+      localStorage.setItem("favorites", JSON.stringify([...set]));
+    }
+
+    function isFavorite(id) {
+      return getFavSet().has(id);
+    }
+
+    function toggleFavorite(id) {
+      const set = getFavSet();
+      if (set.has(id)) set.delete(id);
+      else set.add(id);
+      saveFavSet(set);
+      updateFavStateText();
+    }
+
+    function updateFavStateText() {
+      const el = document.getElementById("favState");
+      if (!currentDetailId) { el.textContent = ""; return; }
+      el.textContent = isFavorite(currentDetailId)
+        ? "Bu kitap favorilerde ⭐"
+        : "Favorilere ekli değil ☆";
+    }
+
+    // ✅ Favorilerde de kapak gösterimi
+    function renderFavorites() {
+      const favEl = document.getElementById("favBooks");
+      favEl.innerHTML = "";
+
+      const favs = [...getFavSet()];
+      if (favs.length === 0) {
+        favEl.innerHTML = `<p class="muted">Henüz favorin yok.</p>`;
+        return;
+      }
+
+      const books = favs.map(findBook).filter(Boolean);
+      books.forEach((b) => {
+        const item = document.createElement("div");
+        item.className = "book";
+
+        const cover = document.createElement("div");
+        cover.className = "cover";
+        createCover(cover, b, 12);
+
+        const meta = document.createElement("div");
+        meta.className = "meta";
+
+        const h = document.createElement("h3");
+        h.textContent = b.title;
+
+        const p = document.createElement("p");
+        p.textContent = `${b.author || "-"}`;
+
+        const genreRow = document.createElement("div");
+        genreRow.className = "tags";
+        getGenresOfBook(b).slice(0, 6).forEach((g) => {
+          const tag = document.createElement("span");
+          tag.className = "genre-tag";
+          tag.textContent = g;
+          genreRow.appendChild(tag);
+        });
+
+        const tags = document.createElement("div");
+        tags.className = "tags";
+        (Array.isArray(b.mood_tags) ? b.mood_tags : []).slice(0, 4).forEach((t) => {
+          const tag = document.createElement("span");
+          tag.className = "tag";
+          tag.textContent = t;
+          tags.appendChild(tag);
+        });
+
+        meta.appendChild(h);
+        meta.appendChild(p);
+        meta.appendChild(genreRow);
+        meta.appendChild(tags);
+
+        const actions = document.createElement("div");
+        actions.className = "book-actions";
+
+        const detailBtn = document.createElement("button");
+        detailBtn.className = "icon-btn";
+        detailBtn.title = "Detay";
+        detailBtn.textContent = "ℹ️";
+        detailBtn.onclick = () => openDetail(b.id);
+
+        const removeBtn = document.createElement("button");
+        removeBtn.className = "icon-btn";
+        removeBtn.title = "Favoriden çıkar";
+        removeBtn.textContent = "🗑️";
+        removeBtn.onclick = () => {
+          toggleFavorite(b.id);
+          renderFavorites();
+        };
+
+        actions.appendChild(detailBtn);
+        actions.appendChild(removeBtn);
+
+        item.appendChild(cover);
+        item.appendChild(meta);
+        item.appendChild(actions);
+
+        favEl.appendChild(item);
+      });
+    }
+
+    function escapeHtml(s) {
+      return String(s)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+  </script>
+</body>
+
+</html>

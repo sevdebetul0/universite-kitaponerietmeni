@@ -1,0 +1,765 @@
+[
+    {
+        "id": 1,
+        "title": "Yüzüklerin Efendisi",
+        "author": "J. R. R. Tolkien",
+        "genre": "fantastik",
+        "mood_tags": [
+            "epik",
+            "macera",
+            "heyecanli",
+            "umutlu"
+        ],
+        "description": "Orta Dünya'da geçen büyük bir macera ve iyilik-kötülük savaşı.",
+        "genres": [
+            "fantastik",
+            "epik fantastik",
+            "macera",
+            "mitoloji"
+        ],
+        "language": "tr",
+        "audience": "genel",
+        "keywords": []
+    },
+    {
+        "id": 2,
+        "title": "Harry Potter ve Felsefe Taşı",
+        "author": "J. K. Rowling",
+        "genre": "fantastik",
+        "mood_tags": [
+            "sicak",
+            "arkadaslik",
+            "okul",
+            "mutlu"
+        ],
+        "description": "Genç bir büyücünün Hogwarts'taki ilk yılı.",
+        "genres": [
+            "fantastik",
+            "buyu",
+            "okul",
+            "genclik"
+        ],
+        "language": "tr",
+        "audience": "genclik",
+        "keywords": []
+    },
+    {
+        "id": 3,
+        "title": "Hobbit",
+        "author": "J. R. R. Tolkien",
+        "genre": "fantastik",
+        "mood_tags": [
+            "hafif",
+            "macera",
+            "mutlu"
+        ],
+        "description": "Bilbo Baggins'in beklenmedik yolculugu.",
+        "genres": [
+            "fantastik",
+            "macera",
+            "epik fantastik"
+        ],
+        "language": "tr",
+        "audience": "genel",
+        "keywords": []
+    },
+    {
+        "id": 4,
+        "title": "Narnia Günlükleri: Aslan, Cadı ve Dolap",
+        "author": "C. S. Lewis",
+        "genre": "fantastik",
+        "mood_tags": [
+            "mutlu",
+            "masalsi",
+            "aile"
+        ],
+        "description": "Bir dolabin icinden girilen büyülü bir dünya.",
+        "genres": [
+            "fantastik",
+            "cocuk",
+            "macera",
+            "alegori"
+        ],
+        "language": "tr",
+        "audience": "genclik",
+        "keywords": []
+    },
+    {
+        "id": 5,
+        "title": "Dune",
+        "author": "Frank Herbert",
+        "genre": "bilim kurgu",
+        "mood_tags": [
+            "epik",
+            "yogun",
+            "dusunceli"
+        ],
+        "description": "Çöl gezegeninde geçen politik ve mistik bir bilim kurgu klasiği.",
+        "genres": [
+            "bilim kurgu",
+            "uzay operasi",
+            "politik kurgu",
+            "epik"
+        ],
+        "language": "tr",
+        "audience": "genel",
+        "keywords": []
+    },
+    {
+        "id": 6,
+        "title": "Marslı",
+        "author": "Andy Weir",
+        "genre": "bilim kurgu",
+        "mood_tags": [
+            "mizahi",
+            "gerilimli",
+            "umutlu"
+        ],
+        "description": "Mars'ta hayatta kalmaya çalışan bir astronotun hikayesi.",
+        "genres": [
+            "bilim kurgu",
+            "hayatta kalma",
+            "uzay",
+            "macera"
+        ],
+        "language": "tr",
+        "audience": "genel",
+        "keywords": []
+    },
+    {
+        "id": 7,
+        "title": "1984",
+        "author": "George Orwell",
+        "genre": "distopya",
+        "mood_tags": [
+            "karanlik",
+            "uzgun",
+            "dusunceli",
+            "gerilimli"
+        ],
+        "description": "Totaliter bir rejim altinda gecen karanlik bir gelecek tasviri.",
+        "genres": [
+            "distopya",
+            "politik",
+            "klasik",
+            "toplum"
+        ],
+        "language": "tr",
+        "audience": "genel",
+        "keywords": []
+    },
+    {
+        "id": 8,
+        "title": "Cesur Yeni Dünya",
+        "author": "Aldous Huxley",
+        "genre": "distopya",
+        "mood_tags": [
+            "dusunceli",
+            "soguk",
+            "uzgun"
+        ],
+        "description": "Teknoloji ve haz uzerine kurulu yapay bir toplum elestirisi.",
+        "genres": [
+            "distopya",
+            "bilim kurgu",
+            "klasik",
+            "toplum"
+        ],
+        "language": "tr",
+        "audience": "genel",
+        "keywords": []
+    },
+    {
+        "id": 9,
+        "title": "Fahrenheit 451",
+        "author": "Ray Bradbury",
+        "genre": "distopya",
+        "mood_tags": [
+            "gerilimli",
+            "isyankar",
+            "dusunceli"
+        ],
+        "description": "Kitaplarin yasak oldugu bir gelecekte bir itfaiyecinin uyanisi.",
+        "genres": [
+            "distopya",
+            "klasik",
+            "toplum",
+            "kitaplar"
+        ],
+        "language": "tr",
+        "audience": "genel",
+        "keywords": []
+    },
+    {
+        "id": 10,
+        "title": "Hayvan Çiftliği",
+        "author": "George Orwell",
+        "genre": "distopya",
+        "mood_tags": [
+            "alayci",
+            "dusunceli"
+        ],
+        "description": "Bir ciftlik uzerinden totaliter rejimlerin elestirisi.",
+        "genres": [
+            "distopya",
+            "alegori",
+            "klasik",
+            "politik"
+        ],
+        "language": "tr",
+        "audience": "genel",
+        "keywords": []
+    },
+    {
+        "id": 11,
+        "title": "V for Vendetta",
+        "author": "Alan Moore",
+        "genre": "distopya",
+        "mood_tags": [
+            "isyankar",
+            "gerilimli",
+            "karanlik"
+        ],
+        "description": "Totaliter bir devlete karsi maske takan bir isyancinin hikayesi.",
+        "genres": [
+            "distopya",
+            "cizgi roman",
+            "politik",
+            "aksiyon"
+        ],
+        "language": "tr",
+        "audience": "genel",
+        "keywords": []
+    },
+    {
+        "id": 12,
+        "title": "Uyumsuz",
+        "author": "Veronica Roth",
+        "genre": "distopya",
+        "mood_tags": [
+            "heyecanli",
+            "genclik",
+            "gerilimli"
+        ],
+        "description": "Topluma bolunmus fraksiyonlar uzerine genç bir kadinin yolculugu.",
+        "genres": [
+            "distopya",
+            "genclik",
+            "macera",
+            "romantizm"
+        ],
+        "language": "tr",
+        "audience": "genclik",
+        "keywords": []
+    },
+    {
+        "title": "Taht Oyunları",
+        "author": "George R. R. Martin",
+        "genre": "fantastik",
+        "genres": [
+            "fantastik",
+            "epik fantastik",
+            "politik",
+            "entrika"
+        ],
+        "mood_tags": [
+            "epik",
+            "gerilimli",
+            "karanlik",
+            "surukleyici"
+        ],
+        "description": "Westeros'ta taht mücadeleleri, ittifaklar ve ihanetlerle örülü karanlık bir epik.",
+        "cover": "/static/covers/marti.jpg",
+        "language": "tr",
+        "audience": "genel",
+        "keywords": [],
+        "id": 13
+    },
+    {
+        "title": "Kralkatili Güncesi: Rüzgarın Adı",
+        "author": "Patrick Rothfuss",
+        "genre": "fantastik",
+        "genres": [
+            "fantastik",
+            "epik fantastik",
+            "macera",
+            "biyografik anlatim"
+        ],
+        "mood_tags": [
+            "surukleyici",
+            "duygusal",
+            "merak uyandirici",
+            "epik"
+        ],
+        "description": "Kvothe'un efsaneye dönüşen hayatını anlatan büyülü, müzikli ve gizemli bir yolculuk.",
+        "language": "tr",
+        "audience": "genel",
+        "keywords": [],
+        "id": 14
+    },
+    {
+        "title": "Mistborn: Son İmparatorluk",
+        "author": "Brandon Sanderson",
+        "genre": "fantastik",
+        "genres": [
+            "fantastik",
+            "epik fantastik",
+            "soygun",
+            "buyu sistemi"
+        ],
+        "mood_tags": [
+            "heyecanli",
+            "surukleyici",
+            "umutlu",
+            "aksiyon"
+        ],
+        "description": "Küller altındaki bir imparatorlukta, metal büyüsüyle devrime hazırlanan bir ekip.",
+        "language": "tr",
+        "audience": "genel",
+        "keywords": [],
+        "id": 15
+    },
+    {
+        "title": "Vakıf",
+        "author": "Isaac Asimov",
+        "genre": "bilim kurgu",
+        "genres": [
+            "bilim kurgu",
+            "uzay operasi",
+            "klasik",
+            "politik kurgu"
+        ],
+        "mood_tags": [
+            "dusunceli",
+            "epik",
+            "merak uyandirici",
+            "yogun"
+        ],
+        "description": "Çöken bir galaksiyi matematiksel öngörüyle kurtarmaya çalışan Vakıf'ın yüzyıllara yayılan hikâyesi.",
+        "language": "tr",
+        "audience": "genel",
+        "keywords": [],
+        "id": 16
+    },
+    {
+        "title": "Ender'in Oyunu",
+        "author": "Orson Scott Card",
+        "genre": "bilim kurgu",
+        "genres": [
+            "bilim kurgu",
+            "askeri bilim kurgu",
+            "genclik",
+            "uzay"
+        ],
+        "mood_tags": [
+            "heyecanli",
+            "gerilimli",
+            "merak uyandirici",
+            "yogun"
+        ],
+        "description": "Bir çocuğun strateji okulunda insanlığı kurtaracak lidere dönüşmesini anlatan sürükleyici bir bilim kurgu.",
+        "language": "tr",
+        "audience": "genclik",
+        "keywords": [],
+        "id": 17
+    },
+    {
+        "title": "Neuromancer",
+        "author": "William Gibson",
+        "genre": "bilim kurgu",
+        "genres": [
+            "bilim kurgu",
+            "siberpunk",
+            "noir",
+            "klasik"
+        ],
+        "mood_tags": [
+            "karanlik",
+            "gerilimli",
+            "dusunceli",
+            "surukleyici"
+        ],
+        "description": "Siberpunk türünün temel taşlarından: hacker'lar, yapay zekâlar ve neon ışıklı karanlık bir gelecek.",
+        "language": "tr",
+        "audience": "genel",
+        "keywords": [],
+        "id": 18
+    },
+    {
+        "title": "Körlük",
+        "author": "José Saramago",
+        "genre": "roman",
+        "genres": [
+            "roman",
+            "dunya edebiyati",
+            "toplum",
+            "distopya"
+        ],
+        "mood_tags": [
+            "gerilimli",
+            "karanlik",
+            "dusunceli",
+            "yogun"
+        ],
+        "description": "Bilinmeyen bir körlük salgınıyla çöken toplumun etik ve insanlık sınavı.",
+        "language": "tr",
+        "audience": "genel",
+        "keywords": [],
+        "id": 19
+    },
+    {
+        "title": "Suç ve Ceza",
+        "author": "Fyodor Dostoyevski",
+        "genre": "klasik",
+        "genres": [
+            "klasik",
+            "psikolojik",
+            "roman",
+            "rus edebiyati"
+        ],
+        "mood_tags": [
+            "dusunceli",
+            "yogun",
+            "karanlik",
+            "duygusal"
+        ],
+        "description": "Bir cinayetin ardından vicdan, suç ve kefaret üzerine derin psikolojik bir klasik.",
+        "language": "tr",
+        "audience": "genel",
+        "keywords": [],
+        "id": 20
+    },
+    {
+        "title": "Sefiller",
+        "author": "Victor Hugo",
+        "genre": "klasik",
+        "genres": [
+            "klasik",
+            "tarihi",
+            "roman",
+            "dram"
+        ],
+        "mood_tags": [
+            "duygusal",
+            "umutlu",
+            "yogun",
+            "epik"
+        ],
+        "description": "Jean Valjean'ın hayatı üzerinden adalet, merhamet ve toplum eleştirisi.",
+        "language": "tr",
+        "audience": "genel",
+        "keywords": [],
+        "id": 21
+    },
+    {
+        "title": "Kürk Mantolu Madonna",
+        "author": "Sabahattin Ali",
+        "genre": "roman",
+        "genres": [
+            "roman",
+            "turk edebiyati",
+            "ask",
+            "klasik"
+        ],
+        "mood_tags": [
+            "duygusal",
+            "huzunlu",
+            "romantik",
+            "yogun"
+        ],
+        "description": "Raif Efendi'nin iç dünyası ve Maria Puder'le yaşadığı kırılgan aşkın hikâyesi.",
+        "language": "tr",
+        "audience": "genel",
+        "keywords": [],
+        "id": 22
+    },
+    {
+        "title": "Simyacı",
+        "author": "Paulo Coelho",
+        "genre": "roman",
+        "genres": [
+            "roman",
+            "felsefi",
+            "kisisel gelisim",
+            "macera"
+        ],
+        "mood_tags": [
+            "umutlu",
+            "ilham verici",
+            "huzurlu",
+            "dusunceli"
+        ],
+        "description": "Kendi 'kişisel menkıbesi'ni arayan çobanın sembollerle dolu yolculuğu.",
+        "cover": "/static/covers/simyaci.jpg",
+        "language": "tr",
+        "audience": "genel",
+        "keywords": [],
+        "id": 23
+    },
+    {
+        "title": "Küçük Prens",
+        "author": "Antoine de Saint-Exupéry",
+        "genre": "cocuk",
+        "genres": [
+            "cocuk",
+            "felsefi",
+            "klasik",
+            "masal"
+        ],
+        "mood_tags": [
+            "huzurlu",
+            "dusunceli",
+            "umutlu",
+            "duygusal"
+        ],
+        "description": "Büyükler dünyasını çocuk gözüyle sorgulayan kısa ama derin bir masal.",
+        "language": "tr",
+        "audience": "genclik",
+        "keywords": [],
+        "id": 24
+    },
+    {
+        "title": "Sherlock Holmes: Kızıl Dosya",
+        "author": "Arthur Conan Doyle",
+        "genre": "polisiye",
+        "genres": [
+            "polisiye",
+            "gizem",
+            "klasik",
+            "dedektif"
+        ],
+        "mood_tags": [
+            "merak uyandirici",
+            "gerilimli",
+            "surukleyici",
+            "zekice"
+        ],
+        "description": "Holmes ve Watson'ın ilk vakası: ipuçları, çıkarımlar ve Londra'nın sisli sokakları.",
+        "language": "tr",
+        "audience": "genel",
+        "keywords": [],
+        "id": 25
+    },
+    {
+        "title": "Doğu Ekspresinde Cinayet",
+        "author": "Agatha Christie",
+        "genre": "polisiye",
+        "genres": [
+            "polisiye",
+            "gizem",
+            "klasik",
+            "dedektif"
+        ],
+        "mood_tags": [
+            "merak uyandirici",
+            "gerilimli",
+            "surukleyici",
+            "zekice"
+        ],
+        "description": "Trende işlenen cinayet ve Poirot'nun ustaca çözdüğü sırlarla dolu kapalı oda gizemi.",
+        "language": "tr",
+        "audience": "genel",
+        "keywords": [],
+        "id": 26
+    },
+    {
+        "title": "Bilinmeyen Bir Kadının Mektubu",
+        "author": "Stefan Zweig",
+        "genre": "roman",
+        "genres": [
+            "roman",
+            "kisa",
+            "psikolojik",
+            "dunya edebiyati"
+        ],
+        "mood_tags": [
+            "duygusal",
+            "huzunlu",
+            "yogun",
+            "romantik"
+        ],
+        "description": "Bir adamın hayatını uzaktan yaşayan kadının itiraf mektubuyla gelen sarsıcı hikâye.",
+        "language": "tr",
+        "audience": "genel",
+        "keywords": [],
+        "id": 27
+    },
+    {
+        "title": "Sapiens: İnsan Türünün Kısa Bir Tarihi",
+        "author": "Yuval Noah Harari",
+        "genre": "kurgu disi",
+        "genres": [
+            "kurgu disi",
+            "tarih",
+            "bilim",
+            "toplum"
+        ],
+        "mood_tags": [
+            "dusunceli",
+            "merak uyandirici",
+            "yogun",
+            "ilham verici"
+        ],
+        "description": "İnsanlığın bilişsel devrimden bugüne uzanan serüvenini anlatan popüler bilim klasiği.",
+        "language": "tr",
+        "audience": "genel",
+        "keywords": [],
+        "id": 28
+    },
+    {
+        "title": "Atomik Alışkanlıklar",
+        "author": "James Clear",
+        "genre": "kisisel gelisim",
+        "genres": [
+            "kisisel gelisim",
+            "verimlilik",
+            "psikoloji",
+            "aliskanlik"
+        ],
+        "mood_tags": [
+            "ilham verici",
+            "umutlu",
+            "huzurlu",
+            "dusunceli"
+        ],
+        "description": "Küçük alışkanlıkların büyük değişime dönüşmesini adım adım anlatan pratik bir rehber.",
+        "cover": "/static/covers/atomikaliskanliklar.jpg",
+        "language": "tr",
+        "audience": "genel",
+        "keywords": [],
+        "id": 29
+    },
+    {
+        "title": "Martı",
+        "author": "Richard Bach",
+        "genre": "kisisel gelisim",
+        "genres": [
+            "kisisel gelisim",
+            "felsefi",
+            "kisa",
+            "ilham"
+        ],
+        "mood_tags": [
+            "ilham verici",
+            "huzurlu",
+            "umutlu",
+            "dusunceli"
+        ],
+        "description": "Sınırları aşmayı hayal eden bir martının özgürlük ve anlam arayışı.",
+        "cover": "/static/covers/marti.jpg",
+        "language": "tr",
+        "audience": "genel",
+        "keywords": [],
+        "id": 30
+    },
+    {
+        "id": 31,
+        "title": "Suç ve Ceza",
+        "author": "Fyodor Dostoyevski",
+        "genre": "klasik",
+        "mood_tags": [
+            "dusunceli",
+            "duygusal"
+        ],
+        "description": "Bir öğrencinin işlediği cinayetin psikolojik sonuçları."
+    },
+    {
+        "id": 32,
+        "title": "Sefiller",
+        "author": "Victor Hugo",
+        "genre": "klasik",
+        "mood_tags": [
+            "dusunceli",
+            "duygusal"
+        ],
+        "description": "Adalet, merhamet ve insanlık üzerine destansı bir roman."
+    },
+    {
+        "id": 33,
+        "title": "Anna Karenina",
+        "author": "Lev Tolstoy",
+        "genre": "klasik",
+        "mood_tags": [
+            "dusunceli",
+            "duygusal"
+        ],
+        "description": "Aşk ve toplum baskısı arasında kalan bir kadının hikayesi."
+    },
+    {
+        "id": 34,
+        "title": "Gurur ve Önyargı",
+        "author": "Jane Austen",
+        "genre": "klasik",
+        "mood_tags": [
+            "dusunceli",
+            "duygusal"
+        ],
+        "description": "Aşk ve sınıf farkları üzerine romantik bir klasik."
+    },
+    {
+        "id": 35,
+        "title": "Bülbülü Öldürmek",
+        "author": "Harper Lee",
+        "genre": "klasik",
+        "mood_tags": [
+            "dusunceli",
+            "duygusal"
+        ],
+        "description": "Irkçılık ve adalet üzerine dokunaklı bir hikaye."
+    },
+    {
+        "id": 36,
+        "title": "Büyük Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "genre": "klasik",
+        "mood_tags": [
+            "dusunceli",
+            "duygusal"
+        ],
+        "description": "Amerikan rüyasının çöküşü."
+    },
+    {
+        "id": 37,
+        "title": "Savaş ve Barış",
+        "author": "Lev Tolstoy",
+        "genre": "klasik",
+        "mood_tags": [
+            "dusunceli",
+            "duygusal"
+        ],
+        "description": "Napolyon döneminde Rusya ve insan kaderi."
+    },
+    {
+        "id": 38,
+        "title": "Monte Cristo Kontu",
+        "author": "Alexandre Dumas",
+        "genre": "klasik",
+        "mood_tags": [
+            "dusunceli",
+            "duygusal"
+        ],
+        "description": "İntikam ve adaletin hikayesi."
+    },
+    {
+        "id": 39,
+        "title": "Don Kişot",
+        "author": "Miguel de Cervantes",
+        "genre": "klasik",
+        "mood_tags": [
+            "dusunceli",
+            "duygusal"
+        ],
+        "description": "Hayaller ve gerçeklik arasındaki mücadele."
+    },
+    {
+        "id": 40,
+        "title": "Karamazov Kardeşler",
+        "author": "Fyodor Dostoyevski",
+        "genre": "klasik",
+        "mood_tags": [
+            "dusunceli",
+            "duygusal"
+        ],
+        "description": "Ahlak ve inanç üzerine derin bir roman."
+    }
+]
